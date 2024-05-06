@@ -9,13 +9,13 @@
     <Grid>
         <StackPanel Width="400">
             <Label HorizontalAlignment="Left" Content="Model" FontSize="23" Foreground="Blue" FontWeight="Bold"/>
-            <TextBox Width="300" HorizontalAlignment="Left" Margin="0 6 0 6" Text="{Binding Model}" Height="35"/>
+            <TextBox Width="300" HorizontalAlignment="Left" Margin="0 6 0 6" Text="{Binding NewCar.Model}" Height="35"/>
 
             <Label HorizontalAlignment="Left" Content="Vendor" FontSize="23" Foreground="Blue" FontWeight="Bold"/>
-            <TextBox Width="300" HorizontalAlignment="Left" Margin="0 6 0 6" Text="{Binding Vendor}" Height="35"/>
+            <TextBox Width="300" HorizontalAlignment="Left" Margin="0 6 0 6" Text="{Binding NewCar.Vendor}" Height="35"/>
 
             <Label HorizontalAlignment="Left" Content="Year" FontSize="23" Foreground="Blue" FontWeight="Bold"/>
-            <TextBox Width="300" HorizontalAlignment="Left" Margin="0 6 0 6" Text="{Binding Year}" Height="35"/>
+            <TextBox Width="300" HorizontalAlignment="Left" Margin="0 6 0 6" Text="{Binding NewCar.Year}" Height="35"/>
 
             <Grid>
                 <Grid.ColumnDefinitions>

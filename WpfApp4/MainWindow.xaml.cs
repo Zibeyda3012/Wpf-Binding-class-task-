@@ -38,6 +38,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
         InitializeComponent();
         Cars = new ObservableCollection<Car>();
         DataContext = this;
+        MyCar = new Car();
     }
 
     private void Add_btn_Click(object sender, RoutedEventArgs e)
@@ -46,24 +47,30 @@ public partial class MainWindow : Window, INotifyPropertyChanged
         newWindow.Button_Text = "Add";
         newWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
         Hide();
+        newWindow.NewCar = MyCar;
         newWindow.ShowDialog();
         if (newWindow.DialogResult == true)
-            Cars.Add(newWindow.NewCar);
+            Cars.Add(MyCar);
         Show();
+        MyCar = new();
     }
 
     private void ListView_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
     {
         NewWindow newWindow = new NewWindow();
         newWindow.Button_Text = "Update";
-        newWindow.NewCar = (sender as ListView).SelectedItem as Car;
-        Car tempCar = new(newWindow.NewCar.Model, newWindow.NewCar.Vendor, newWindow.NewCar.Year);
+        MyCar = (sender as ListView).SelectedItem as Car;
+        Car tempCar = new(MyCar.Model, MyCar.Vendor, MyCar.Year);
+        newWindow.NewCar = tempCar; 
         Hide();
         newWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
         newWindow.ShowDialog();
-        if(newWindow.DialogResult == true)
+        if (newWindow.DialogResult == true)
         {
-            newWindow.NewCar = tempCar;
+            MyCar.Model = tempCar.Model;
+            MyCar.Vendor = tempCar.Vendor;
+            MyCar.Year = tempCar.Year;
+
         }
         Show();
     }

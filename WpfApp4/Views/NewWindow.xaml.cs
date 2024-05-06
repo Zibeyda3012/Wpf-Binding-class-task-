@@ -40,6 +40,7 @@ public partial class NewWindow : Window, INotifyPropertyChanged
     public NewWindow()
     {
         InitializeComponent();
+        NewCar = new();
         DataContext = this;
     }
 
